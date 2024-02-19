@@ -3,20 +3,24 @@
 \usepackage[italian]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{float}
+\usepackage{hyperref}
+\usepackage[italian]{cleveref}
 
-\title{Basi di dati}
+\title{Basi di dati\\Appunti tratti dalle lezioni della prof.ssa. \textit{Annalisa Franco}}
 \author{Luca Casadei}
 \date{\today}
 
 \begin{document}
 	\maketitle
+	\tableofcontents
+
 	\chapter{Introduzione}
 	\section{Definizioni principali}
 	\textbf{Database:} Una collezione composta da dati di diverso genere.\\\\
 	\textbf{DBMS}: Un software capace di accedere in maniera efficace ed efficiente ai dati del database.\\
-	\subsection*{Applicazioni dei database}
+	\section{Applicazioni dei database}
 	\begin{itemize}
-		\item OLTP:
+		\item OLTP: Si usa generalmente un approccio transazionale
 		\item OLAP: Se si ha un interesse ad analizzare dati storici per soluzioni strategiche in futuro (es: per aggiungere una nuova categoria di prodotto una certa azienda potrebbe servire analizzare uno storico). Si può rappresentare questo tipo con dei Cubi, che facilitano alcune ricerche dei dati necessari. I contenuti di questi database sono di più alto livello, non scendono nei dettagli dell'elemento del database in se.
 	\end{itemize}
 A seconda delle operazioni da eseguire, possiamo scegliere quale tipo di modello DBMS usare, se di tipo \textit{relazionale} o \textit{non-relazionale}.
@@ -35,5 +39,13 @@ Deve essere garantita la possibilità di accedere agli elementi anche se ci sono
 \begin{itemize}
 	\item \textbf{End User "naive"}: Sono utenti che non hanno alcun tipo della rappresentazione dei dati, ma vi accedono attraverso delle query preconfezionate e già programmate.
 	\item \textbf{End User sofisticati}: Sono utenti che non partecipano attivamente alla progettazione del database ma vi hanno accesso e possono effettuarvi modifiche, devono quindi conoscere come sono organizzati i dati.
+\end{itemize}
+\section{Realizzare un database}
+Nell'approccio transazionale in genere si utilizza il modello relazione, in questo contesto dobbiamo \textbf{progettare} uno schema \textit{Entità-Relazione}, questa rappresentazione ci consente di creare logicamente delle tabelle che contengono i nostri dati e le relazioni che vi sono tra le diverse tabelle. La progettazione è la parte più complessa da realizzare, le successive sono più meccaniche.\\
+Come \textbf{accedere} ai contenuti del database che abbiamo creato? Si utilizza il linguaggio SQL, che si basa sul concetto dell'algebra relazionale.\\
+Ci possono essere diversi approcci per l'accesso ai dati:
+\begin{itemize}
+	\item Approccio con API di accesso al database (es: JDBC per Java)
+	\item Approccio ORM, in cui si associano le entità del database a degli oggetti di un linguaggio orientato agli oggetti, con un metodo che in genere è "code-first" e più vicino alla programmazione.
 \end{itemize}
 \end{document}
