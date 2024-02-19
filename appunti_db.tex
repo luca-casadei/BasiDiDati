@@ -1,0 +1,39 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+
+\title{Basi di dati}
+\author{Luca Casadei}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	\chapter{Introduzione}
+	\section{Definizioni principali}
+	\textbf{Database:} Una collezione composta da dati di diverso genere.\\\\
+	\textbf{DBMS}: Un software capace di accedere in maniera efficace ed efficiente ai dati del database.\\
+	\subsection*{Applicazioni dei database}
+	\begin{itemize}
+		\item OLTP:
+		\item OLAP: Se si ha un interesse ad analizzare dati storici per soluzioni strategiche in futuro (es: per aggiungere una nuova categoria di prodotto una certa azienda potrebbe servire analizzare uno storico). Si può rappresentare questo tipo con dei Cubi, che facilitano alcune ricerche dei dati necessari. I contenuti di questi database sono di più alto livello, non scendono nei dettagli dell'elemento del database in se.
+	\end{itemize}
+A seconda delle operazioni da eseguire, possiamo scegliere quale tipo di modello DBMS usare, se di tipo \textit{relazionale} o \textit{non-relazionale}.
+\subsection*{Database \textit{non-relazionali} e loro applicazione}
+Un'altra applicazione dei database è nel contesto dell'intelligenza artificiale o della \textit{sentiment analisys}, in questo caso però i dati sono talmente numerosi che è conveniente utilizzare sistemi DBMS più flessibili che riescano a gestire anche elementi meno organizzati e strutturati.\\
+Sono più scalabili e generalmente memorizzati su nodi in maniera distribuita, aggiungere nodi in questo caso non è un'operazione difficile.
+Deve essere garantita la possibilità di accedere agli elementi anche se ci sono dei "guasti" in dei nodi del database (fault-tolerance maggiore). Si può lavorare in parallelo su più nodi per effettuare una ricerca più rapida. Per massimizzare le prestazioni si adotta un'organizzazione ad albero, e non a tabelle come nei database \textit{relazionali}.
+\subsection{Figure dei database \textit{relazionali}}
+\begin{itemize}
+	\item \textbf{DBA}: Database administrator, esso ha il compito di effettuare il monitoraggio, creare gli oggetti logici, analizzare le prestazioni ed ottimizzarle se necessario, gestire i permessi con i relativi utenti etc\dots
+	\item \textbf{Database designer}: Si occupa di fornire il modello logico (progettazione) del database da implementare.
+	\item \textbf{Software Engineer}: Si occupa di effettuare l'analisi che poi servirà al designer per progettare il database.
+	\item \textbf{End User}: Si interfacciano indirettamente con il database.
+\end{itemize}
+\subsubsection{Classificazione degli end user}
+\begin{itemize}
+	\item \textbf{End User "naive"}: Sono utenti che non hanno alcun tipo della rappresentazione dei dati, ma vi accedono attraverso delle query preconfezionate e già programmate.
+	\item \textbf{End User sofisticati}: Sono utenti che non partecipano attivamente alla progettazione del database ma vi hanno accesso e possono effettuarvi modifiche, devono quindi conoscere come sono organizzati i dati.
+\end{itemize}
+\end{document}
