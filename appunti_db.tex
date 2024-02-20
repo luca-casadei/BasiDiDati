@@ -14,18 +14,23 @@
 	\tableofcontents
 	\chapter{Introduzione}
 	\section{Definizioni principali}
-	\textbf{Database:} Una collezione composta da dati di diverso genere.\\\\
-	\textbf{DBMS}: Un software capace di accedere in maniera efficace ed efficiente ai dati del database.\\
+	\textbf{Base di dati}: è una componente di un \textit{sistema informativo} atto a memorizzare in maniera strutturata dei \textit{dati}.\\
+	\textbf{DBMS}: Un software capace di accedere in maniera efficace ed efficiente ai dati del database necessari al sistema informativo, segue un modello logico e garantisce \textit{persistenza}, \textit{condivisione}, \textit{affidabilità} e \textit{riservatezza}.
 	\section{Applicazioni dei database}
 	\begin{itemize}
-		\item OLTP: Si usa generalmente un approccio transazionale
-		\item OLAP: Se si ha un interesse ad analizzare dati storici per soluzioni strategiche in futuro (es: per aggiungere una nuova categoria di prodotto una certa azienda potrebbe servire analizzare uno storico). Si può rappresentare questo tipo con dei Cubi, che facilitano alcune ricerche dei dati necessari. I contenuti di questi database sono di più alto livello, non scendono nei dettagli dell'elemento del database in se.
+		\item \textbf{OLTP}: Si usa generalmente un approccio transazionale in cui i dati sono recenti (non uno storico molto grande), con quantità di dati ridotta in cui le operazioni di scrittura sono frequenti quanto quelle di lettura.
+		\item \textbf{OLAP}: Se si ha un interesse ad analizzare dati storici per soluzioni strategiche in futuro (es: per aggiungere una nuova categoria di prodotto una certa azienda potrebbe servire analizzare uno storico). Si può rappresentare questo tipo con dei Cubi, che facilitano alcune ricerche dei dati necessari. I contenuti di questi database sono di più alto livello, non scendono nei dettagli dell'elemento del database in se.
 	\end{itemize}
 A seconda delle operazioni da eseguire, possiamo scegliere quale tipo di modello DBMS usare, se di tipo \textit{relazionale} o \textit{non-relazionale}.
-\subsection*{Database \textit{non-relazionali} e loro applicazione}
-Un'altra applicazione dei database è nel contesto dell'intelligenza artificiale o della \textit{sentiment analisys}, in questo caso però i dati sono talmente numerosi che è conveniente utilizzare sistemi DBMS più flessibili che riescano a gestire anche elementi meno organizzati e strutturati.\\
-Sono più scalabili e generalmente memorizzati su nodi in maniera distribuita, aggiungere nodi in questo caso non è un'operazione difficile.
-Deve essere garantita la possibilità di accedere agli elementi anche se ci sono dei "guasti" in dei nodi del database (fault-tolerance maggiore). Si può lavorare in parallelo su più nodi per effettuare una ricerca più rapida. Per massimizzare le prestazioni si adotta un'organizzazione ad albero, e non a tabelle come nei database \textit{relazionali}.
+\subsection{Database \textit{non-relazionali} e loro applicazione}
+Un'altra applicazione dei database \textit{non-relazionali} è nel contesto dell'intelligenza artificiale o della \textit{sentiment analisys}, in questo caso però i dati sono talmente numerosi che è conveniente utilizzare sistemi DBMS più flessibili che riescano a gestire anche elementi meno organizzati e strutturati che si auto-descrivono (come XML o JSON).\\
+\subsubsection{Vantaggi dei database non-relazionali}
+\begin{itemize}
+	\item \textbf{Scalabilità}: Sono più scalabili e generalmente memorizzati su nodi in maniera distribuita, aggiungere nodi in questo caso non è un'operazione difficile.
+	\item \textbf{Fault-tolerance}: Deve essere garantita la possibilità di accedere agli elementi anche se ci sono dei "guasti" in dei nodi del database (fault-tolerance maggiore).
+	\item \textbf{Sharding (del dato) o parallelismo}: Si può lavorare in parallelo su più nodi per effettuare una ricerca più rapida distribuendo le elaborazioni. Per massimizzare le prestazioni si adotta un'organizzazione diversa, e non a tabelle come nei database \textit{relazionali}.
+\end{itemize}
+  
 \subsection{Figure dei database \textit{relazionali}}
 \begin{itemize}
 	\item \textbf{DBA}: Database administrator, esso ha il compito di effettuare il monitoraggio, creare gli oggetti logici, analizzare le prestazioni ed ottimizzarle se necessario, gestire i permessi con i relativi utenti etc\dots
