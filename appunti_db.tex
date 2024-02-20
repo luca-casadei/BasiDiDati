@@ -5,7 +5,7 @@
 \usepackage{float}
 \usepackage{hyperref}
 
-\title{\textbf{Basi di dati}\\Nessuna responsabilità per quanto presente in questi appunti è attribuibile a terzi.}
+\title{\textbf{Basi di dati}\\Appunti universitari tratti dal corso\\di basi di dati, anno 23/24.}
 \author{Luca Casadei}
 \date{\today}
 
@@ -44,36 +44,55 @@ Un'altra applicazione dei database \textit{non-relazionali} è nel contesto dell
 	\item \textbf{End User sofisticati}: Sono utenti che non partecipano attivamente alla progettazione del database ma vi hanno accesso e possono effettuarvi modifiche, devono quindi conoscere come sono organizzati i dati.
 \end{itemize}
 \section{Realizzare un database}
-Nell'approccio transazionale in genere si utilizza il modello relazione, in questo contesto dobbiamo \textbf{progettare} uno schema \textit{Entità-Relazione}, questa rappresentazione ci consente di creare logicamente delle tabelle che contengono i nostri dati e le relazioni che vi sono tra le diverse tabelle. La progettazione è la parte più complessa da realizzare, le successive sono più meccaniche.\\
-Come \textbf{accedere} ai contenuti del database che abbiamo creato? Si utilizza il linguaggio SQL, che si basa sul concetto dell'algebra relazionale.\\
+Nell'approccio transazionale in genere si utilizza il modello relazionale, in tal contesto dobbiamo \textbf{progettare} uno schema \textit{Entità-Relazione}, questa rappresentazione ci consente di creare logicamente delle tabelle che contengono i nostri dati e le relazioni che vi sono tra le diverse tabelle (e di conseguenza i dati presenti all'interno). Una buona progettazione è la parte più complessa da realizzare, mentre le successive sono più meccaniche.\\
+Per accedere ai database di tipo relazionale si utilizza il linguaggio SQL, che si basa sul concetto dell'algebra relazionale e la sua applicazione pratica.
+\subsection{Accesso ai dati}
 Ci possono essere diversi approcci per l'accesso ai dati:
 \begin{itemize}
 	\item Approccio con API di accesso al database (es: JDBC per Java)
-	\item Approccio ORM, in cui si associano le entità del database a degli oggetti di un linguaggio orientato agli oggetti, con un metodo che in genere è "code-first" e più vicino alla programmazione.
+	\item Approccio ORM, in cui si associano le entità del database a degli oggetti di un linguaggio orientato agli oggetti, con un metodo che in genere è "code-first" e più vicino alla programmazione. Un esempio tipico è la libreria \textit{Linq}
 \end{itemize}
-\section{Sistemi informativi}
-\textbf{Dato}: Immediatamente presente alla conoscenza prima di essere elaborato.\\\\
-\textbf{Informazione}: Quando si da un significato ad un dato, esso compone un'informazione, ogni dato deve quindi essere elaborato in genere.\\\\
-Per elaborare un dato bisogna riconoscere delle classi partendo da un'istanza, che compone il dato, definendo quindi un dominio delle classi e delle istanze presenti nel dato.\\
-Questa classificazione però non basta, bisogna anche capire che relazione vi è tra le classi che riusciamo a definire, cercando di risolvere le ambiguità che fanno inevitabilmente parte della lingua naturale. Questi concetti potrebbero essere quelli della residenza, impiego, utilizzo etc\dots\\
-Le fonti non è detto che siano sufficienti per fare un certo tipo di assunzione.
-Un sistema informativo deve provvedere alla raccolta e  classificazione dei dati, tutto va fatto attraverso determinate procedure ed è particolarmente complesso, esso non richiede esclusivamente conoscenze informatiche, ma anche aziendale, economico etc\dots
-Un sistema informatico invece si occupa di trasmutare il dato in informazione.\\
-I sistemi informativi possono essere strutturati, semi-strutturati o non-strutturati, quelli strutturati in genere sono quelli che si basano su semplici transazioni, le interrogazione sono preconfezionate. Qualsiasi gestionale fa parte di questa categoria.\\
-A livello semi-strutturato invece troviamo qualcosa di meno preconfezionato, come può essere un \textit{ERP} aziendale per gestire le risorse, come i dipendenti, le materie prime, la contabilità etc\dots\\
-A livello non strutturato invece troviamo i Decision Support System per effettuare delle decisioni strategiche per questioni di importanza rilevante, che non posso decidere effettuando una semplice query, ma devo fare delle valutazioni su una grande quantità di dati per fornire poche informazioni di sintesi per compiere queste decisioni.
+\chapter{Sistemi informativi}
+\section{Distinzione tra dato e informazione}
+\begin{itemize}
+	\item \textbf{Dato}: Nominiamo un dato ciò che è immediatamente presente e disponibile alla nostra conoscenza prima di qualsivoglia operazione, questo può variare di forma in molti modi, per esempio potrebbe essere un numero, una parola, un'immagine etc\dots di cui però non disponiamo del significato.
+	\item \textbf{Informazione}: Un elemento che ci consente di avere conoscenza in maniera grossomodo esatta di un certo argomento di interesse, possiamo chiamare un'informazione un dato a cui abbiamo attribuito un significato.
+\end{itemize}
+\subsection{Passaggio da un dato all'informazione}\label{ss:datoainformazione}
+Per elaborare un dato bisogna riconoscere delle classi partendo da un'istanza, che compone il dato, definendo quindi un dominio delle classi e delle istanze presenti nel dato.
+Questa classificazione però non basta, bisogna anche capire che relazione vi è tra le classi che riusciamo a definire, cercando di risolvere le ambiguità che fanno inevitabilmente parte della lingua naturale. Questi concetti potrebbero essere quelli della residenza, impiego, utilizzo etc\dots\\Non è quindi detto che le fonti che abbiamo siano sufficienti per effettuare un certo tipo di assunzione e realizzare il passaggio da dati a informazioni.
+
+\section{Struttura di un sistema informativo}
+\subsection{Sistema informativo e sistema informatico}
+\begin{itemize}
+	\item \textbf{Sistema informati\textit{v}o}: Un sistema informativo deve provvedere alla raccolta e  classificazione dei dati, tutto va fatto attraverso determinate procedure ed è particolarmente complesso, esso non richiede esclusivamente conoscenze informatiche, ma anche aziendale, economico etc\dots
+	\item \textbf{Sistema informati\textit{c}o}: Un sistema informatico invece si occupa di trasmutare il dato in informazione, quindi un sistema informativo può benissimo usare un sistema informatico per elaborare i dati in informazioni, ma questo non significa che siano la stessa cosa, anzi, sono due realtà spesso sconnesse.
+\end{itemize}
+\subsection{Classificazione dei sistemi informativi}
+\begin{itemize}
+	\item \textbf{Strutturati}: I sistemi informativi possono essere strutturati, semi-strutturati o non-strutturati, quelli strutturati in genere sono quelli che si basano su semplici transazioni, le interrogazione sono preconfezionate. Qualsiasi gestionale fa parte di questa categoria.
+	\item \textbf{Semi-strutturati}: A livello semi-strutturato invece troviamo qualcosa di meno preconfezionato, come può essere un \textit{ERP} aziendale per gestire le risorse, come i dipendenti, le materie prime, la contabilità etc\dots
+	\item \textbf{Non-strutturati}: A livello non strutturato invece troviamo i \textit{Decision Support System} per effettuare delle decisioni strategiche per questioni di importanza rilevante, che non posso decidere effettuando una semplice query, ma devo fare delle valutazioni su una grande quantità di dati per fornire poche informazioni di sintesi per compiere queste decisioni (a livello dirigenziale o governativo).
+\end{itemize}
+Si può notare che al diminuire della struttura, diminuisce anche il preconfezionamento delle funzioni di accesso ai dati, stessa cosa vale per la frequenza di apparizione dei dati.\\
 Un sistema informativo è paragonabile ad un processo produttivo, in cui la materia grezza non ha valore, ma lo assume solo quando questa viene processata in informazione.
 \subsection{Cosa rende un'informazione utile}
 \begin{itemize}
 	\item \textbf{Soggettività}: L'informazione è soggettiva, quello che interessa ad un soggetto non deve necessariamente interessare a tutta la collettività.
-	\item \textbf{Rilevanza} relativa alla decisione da prendere.
-	\item \textbf{Tempestività}: Non ci serve a nulla un'informazione se non è disponibile al momento della decisione
+	\item \textbf{Rilevanza}: relativa alla decisione da prendere.
+	\item \textbf{Tempestività}: Non ci serve a nulla un'informazione se non è disponibile al momento della decisione.
+	\item \textbf{Accuratezza}: Le informazioni devono essere corrette e precise, senza precisione non ci sono utili.
+	\item \textbf{Presentazione}: Le informazioni devono poter essere utilizzate direttamente, senza ulteriori elaborazioni (sennò verrebbe a meno la definizione stessa di informazione).
+	\item \textbf{Accessibilità}: Le informazioni devono essere disponibili a chi le chiede, tenendo conto anche dei criteri di sicurezza e riservatezza.
+	\item \textbf{Completezza}: Al decisore deve bastare l'informazione per poter compiere la sua decisione, se l'informazione è incompleta, non serve a nulla.
 \end{itemize}
-Tanti dati hanno un valore molto basso, questo dato acquisisce valore strategico quando è presente in una quantità molto piccola.
+\subsection{Valore di un'informazione}
+Tanti dati hanno un valore molto basso, questo dato acquisisce valore strategico quando è presente in una quantità molto piccola, se le informazioni servono a fare decisioni particolarmente strategiche, competitive o vantaggiose, queste assumono ulteriore valore (qui si può fare un paragone molto centrato con il capitale).
 \subsection{Gestione dei dati con FileSystem}
-Dall'applicazione devo implementare funzionalità di basso livello per leggere o scrivere i dati da un file, sfruttando le funzionalità di un sistema operativo, che non è impossibile a patto che si conosca la struttura adeguata per rappresentare entità e relazioni. Per certo tipo di applicazioni questo procedimento potrebbe essere più efficiente, ma richiede uno sforzo da parte del programmatore nettamente superiore rispetto alla gestione con DBMS, nelle applicazioni reali vi è la necessità però di gestire una quantità di nati molto grande, e la gestione va fatta in modo \textit{persistente} e \textit{condiviso} con anche accessi concorrenti, che venendo fatti su file non è molto semplice, stessa cosa per la gestione dei vincoli che vanno gestiti in maniera esplicita, una modifica ad un dato si potrebbero dover modificare una quantità eccessiva di file.\\
-Sono esigenze che rendono complicata la gestione con i File.
-Nelle aziende si avevano quindi sistemi specifici in ogni area, per lo scambio da un sistema ad un altro era complicato, perché ogni area rappresentava i dati in maniera diversa e spesso non compatibile o standardizzata tra le parti, vi era inoltre una ridondanza eccessiva dei dati, presenti in diverse aree senza avere una diretta interazione tra le parti.
+In questa modalità di gestione dei dati dall'applicazione devo implementare funzionalità di basso livello per leggerli o scriverli da un file, sfruttando le funzionalità di un sistema operativo attraverso delle librerie, questa modalità non è impossibile a patto che si conosca la struttura adeguata per rappresentare entità e relazioni (che vanno specificate anche in questo caso, vedi la sottosezione \ref{ss:datoainformazione}).\\
+Per un certo tipo di applicazioni questo procedimento potrebbe essere più efficiente, ma richiede uno sforzo da parte del programmatore nettamente superiore rispetto alla gestione con DBMS, inoltre nelle applicazioni reali vi è la necessità di gestire una quantità di dati molto grande, e la gestione va fatta in modo \textit{persistente} e \textit{condivisa} con anche accessi concorrenti, che venendo fatti su file non è molto semplice (sia a livello di programmazione che di sistema stesso), stessa cosa per la gestione dei vincoli che vanno gestiti in maniera esplicita, una modifica ad un dato si potrebbero dover modificare una quantità eccessiva di file con tempi di esecuzione enormi.
+\subsubsection*{Gestione con i file in aziende}
+Nelle aziende si avevano sistemi specifici in ogni area divisi in maniera settoriale, lo scambio da un sistema ad un altro era complicato, perché ogni area rappresentava i dati in maniera diversa e spesso non compatibile o standardizzata con le altre, vi era inoltre una ridondanza eccessiva dei dati, presenti in diverse aree senza avere una diretta interazione tra le parti e con ripetizioni molteplici.
 \subsection{Vantaggi di un DBMS}
 \begin{itemize}
 	\item Dati persistenti e condivisi.
